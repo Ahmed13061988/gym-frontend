@@ -2,8 +2,16 @@
 import './App.css';
 import ReactDom from "react-dom"
 import GymCards from './containers/GymCards'
+import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { setGyms } from './redux/actionsCreators';
 
-function App() {
+class App extends Component {
+
+  componentDidMount(){
+    this.props.setGyms()
+  }
+  render(){
   return (
     <>
    
@@ -12,7 +20,7 @@ function App() {
     < GymCards />
     </div>
     </>
-  );
+  );}
 }
 
-export default App;
+export default connect(null, {setGyms})(App);

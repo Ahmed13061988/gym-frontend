@@ -1,12 +1,17 @@
 import React from 'react';
+import { connect} from "react-redux";
+import GymCard from "../components/GymCard"
 
-const GymCards = () =>{
+const GymCards = (props) =>{
 
     return(
         <div className="cards">
-            cards 
+            {props.gyms.map(gym => <GymCard key={gym.id} {...gym}/>)}
         </div>
     )
 }
 
-export default GymCards;
+const mapStateToProps = (state) =>({
+    gyms: state.gyms.gyms
+})
+export default connect(mapStateToProps)(GymCards);
