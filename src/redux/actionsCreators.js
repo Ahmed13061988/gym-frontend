@@ -30,6 +30,8 @@ export const setChosenGym = (id) => {
   export const toggleSignup = () => ({type: "TOGGLE_SIGNUP"})
 
   export const handleLoginForm = (e) => ({
-    type: "HANDLE_LOGIN_FORM",
-    value: {name: e.target.name, value: e.targer.value }
+
+    type: "CHANGE_LOGIN_FORM",
+
+    payload: {name: e.target.name, value: e.target.value }
   })
