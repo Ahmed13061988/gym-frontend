@@ -3,8 +3,9 @@ import './App.css';
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { setGyms } from './redux/actionsCreators';
-import GymPage from './components/GymPage'
-import GymCards from './containers/GymCards'
+import GymPage from './components/GymPage';
+import GymCards from './containers/GymCards';
+import Login from './components/Login';
 import {Switch, Route} from "react-router-dom";
 
 
