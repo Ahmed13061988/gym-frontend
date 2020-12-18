@@ -26,5 +26,10 @@ export const setChosenGym = (id) => {
   }
 
   export const unsetGym = () => ({type: "UNSET_GYM"})
-  
+
   export const toggleSignup = () => ({type: "TOGGLE_SIGNUP"})
+
+  export const handleLoginForm = (e) => ({
+    type: "HANDLE_LOGIN_FORM",
+    value: {name: e.target.name, value: e.targer.value }
+  })
