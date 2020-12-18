@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { setGyms } from './redux/actionsCreators';
 import GymCard from './components/GymCard'
-import GymPage from './components/GymCard'
+import GymPage from './components/GymPage'
 import {Switch, Route} from "react-router-dom";
 
 

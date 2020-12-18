@@ -4,7 +4,8 @@ export const like = () => ({type: "ADD_LIKE"})
 
 export const setGyms = () => {
    
-    return dispatch =>{fetch(BASEURL + "gyms")
+    return dispatch =>{
+    fetch(BASEURL + "gyms")
     .then(res => res.json())
     .then(gyms=> dispatch({
         type: "SET_GYMS",
@@ -12,3 +13,14 @@ export const setGyms = () => {
     }
     ))}
 }
+
+export const setChosenGym = (id) => {
+    return dispatch => {
+      fetch(BASEURL + "gyms/" + id)
+      .then(res => res.json())
+      .then(gym => dispatch({
+        type: "SET_NEEDED_GYM",
+        payload: gym
+      })
+    )}
+  }
