@@ -19,8 +19,10 @@ export const setChosenGym = (id) => {
       fetch(BASEURL + "gyms/" + id)
       .then(res => res.json())
       .then(gym => dispatch({
-        type: "SET_NEEDED_GYM",
+        type: "SET_SELECTED_GYM",
         payload: gym
       })
     )}
   }
+
+  export const unsetGym = () => ({type: "UNSET_GYM"})

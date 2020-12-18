@@ -3,24 +3,25 @@ const nullGym = {
     id: null,
     name: "",
     url: "",
-    address: ""
+    address: "",
+    image_url:""
   }
 
 
 const initialState = {
-    sGym: nullGym,
-    gyms: []
+    
+    gyms: [],
+    selectedGym: nullGym
   }
   
   const gymsReducer = (state=initialState, action) => {
-      console.log("here", state)
     switch (action.type){
         case "SET_GYMS":
          return {...state, gyms: action.payload}
-        case "SET_NEEDED_GYM":
-            return {...state, sGym: action.payload}
+        case "SET_SELECTED_GYM":
+            return {...state, selectedGym: action.payload}
         case "UNSET_GYM":
-         return {...state, sGym: nullGym}
+         return {...state, selectedGym: nullGym}
         default: 
         return {...state}
     }

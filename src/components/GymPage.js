@@ -1,6 +1,6 @@
-import React, { Component} from "react";
-import { connect } from "react-redux";
-import { setChosenGym } from "../redux/actionsCreators"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { setChosenGym , unsetGym } from "../redux/actionsCreators"
 
 
 
@@ -10,18 +10,22 @@ class GymPage extends Component {
     componentDidMount(){
         const id = this.props.match.params.id
         this.props.setChosenGym(id)
-        console.log("im here",setChosenGym)
     }
+
+    componentWillUnmount(){
+        this.props.unsetGym()
+      }
 
 
     renderPage = () => {
-        const { url, name, image_url, address, history } = this.props
+        const {url, name, image_url, address, history} = this.props
+
         return (
           <>
-            <h1><a href={ url }>{ name }</a></h1>
-            <button onClick={ history.goBack }>Go back!</button>
-            <p><img src={ image_url } alt={ name }/></p>
-            <p>{ address }</p>
+            <h1><a href={url}>{name}</a></h1>
+            <button onClick={history.goBack}>Go back!</button>
+            <p><img src={image_url} alt={name}/></p>
+            <p>{address}</p>
           </>
         )
       }
@@ -29,9 +33,10 @@ class GymPage extends Component {
       renderSpinner = () => <div className="loader"></div>
     
       render(){
+          //  console.log("render",this.props)
         return(
           <div className="show">
-            {this.props.id ? this.renderPage() : this.renderSpinner()}
+            {this.props.id? this.renderPage() : this.renderSpinner()}
           </div>
         )
       }
@@ -39,7 +44,9 @@ class GymPage extends Component {
 
 
 const mapStateToProps = (state) => ({
-    ...state.gyms.neededGym
+    ...state.gyms.selectedGym
   })
 
-export default connect( mapStateToProps, { setChosenGym  })(GymPage)
+ 
+
+export default connect(mapStateToProps,{ setChosenGym, unsetGym })(GymPage);
