@@ -1,7 +1,15 @@
+
+const initialFormState = {
+    username: "",
+    password:"",
+    passwordConfirmation:""
+}
+
 const initialState = {
     id: null,
     username: null,
-    signup: false
+    signup: false,
+    LoginForm: initialFormState
   }
   
   const userReducer = (state=initialState, action) => {
