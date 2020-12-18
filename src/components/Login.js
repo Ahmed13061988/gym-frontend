@@ -1,16 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleSignup, handleLoginForm } from '../redux/actionsCreators'
+import { toggleSignup, handleLoginForm, Signup } from '../redux/actionsCreators'
 
 const Login = (props) => {
   
     const { signup, toggleSignup, form, handleLoginForm} = props
     const { username, password, passwordConfirmation} = form 
+    const onSubmit = (e)=>{
+        e.preventDefault();
+        if(signup){
+            if(password == passwordConfirmation){
+            Signup({username: username, password: password})   
+        } else{
+            alert("Passwords don't match!")}
+        }
+    }
     console.log(form)
   return(
     <>
       <h3>{signup ? "Sign up!" : "Login!"} </h3>
-      <form>
+      <form onSubmit={onSubmit}>
         <label>
         Username:
         <input type="text" name="username" value={username} onChange={handleLoginForm} />
@@ -41,4 +50,4 @@ const mapStateToProps = (state) => ({
     form: state.user.loginForm
 })
 
-export default connect(mapStateToProps, { toggleSignup, handleLoginForm})(Login)
+export default connect(mapStateToProps, { toggleSignup, handleLoginForm, Signup})(Login)

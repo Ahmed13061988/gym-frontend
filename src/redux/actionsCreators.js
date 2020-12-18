@@ -35,3 +35,21 @@ export const setChosenGym = (id) => {
 
     payload: {name: e.target.name, value: e.target.value }
   })
+
+  export const Signup =(data)=>{
+    return dispatch => {
+     fetch(BASEURL+ "users", {
+       method: "POST",
+       headers: {
+        "Content-Type" : "application/json"
+       },
+       body: json.stringify(data),
+     })
+     .then(res => res.json)
+     .then(res => dispatch({
+       type: "SET_USER",
+       payload: {user:res.user}
+     }))
+    }
+
+  }
