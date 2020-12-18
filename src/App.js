@@ -20,14 +20,22 @@ class App extends Component {
    
     <div className="App">
     <h1>Find your workout place</h1>
+    {this.props.user.id ?
     <Switch>
       <Route path="/gyms/:id" component={GymPage}/>
       <Route path="/gyms" component={GymCards}/>
     </Switch>
+      :
+      <Login />
+     }
     
     </div>
     </>
   );}
 }
 
-export default connect(null, {setGyms})(App);
+
+const mapStateToProps =(state) =>({ user: state.user
+
+})
+export default connect(mapStateToProps, {setGyms})(App);
