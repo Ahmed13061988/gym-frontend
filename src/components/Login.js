@@ -5,7 +5,7 @@ import { toggleSignup } from '../redux/actionsCreators'
 const Login = (props) => {
   
     const { signup, toggleSignup, form} = props
-    const {username, password, passwordConfirmation} = form 
+    const { username, password, passwordConfirmation} = form 
   return(
     <>
       <h3>{signup ? "Sign up!" : "Login!"} </h3>

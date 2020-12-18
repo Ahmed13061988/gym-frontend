@@ -9,7 +9,7 @@ const initialState = {
     id: null,
     username: null,
     signup: false,
-    LoginForm: initialFormState
+    loginForm: initialFormState
   }
   
   const userReducer = (state=initialState, action) => {
