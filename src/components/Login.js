@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { toggleSignup } from '../redux/actionCreators'
 
 const Login = (props) => {
   
@@ -34,6 +35,6 @@ const Login = (props) => {
 }
 
 
+const mapStateToProps = (state) => ({signup: state.user.signup})
 
-
-export default connect()(Login)
+export default connect(mapStateToProps, { toggleSignup })(Login)

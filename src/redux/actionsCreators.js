@@ -26,4 +26,5 @@ export const setChosenGym = (id) => {
   }
 
   export const unsetGym = () => ({type: "UNSET_GYM"})
+  
   export const toggleSignup = () => ({type: "TOGGLE_SIGNUP"})
