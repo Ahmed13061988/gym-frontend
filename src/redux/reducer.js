@@ -1,8 +1,5 @@
+import gymsReducer from './gymsReducer'
+import {combineReducers} from 'redux'
 
 
-const gymReducer = (state= initialGymState) =>{
-
-}
-
-
-export const reducer = combineReducers({gyms: gymReducer})
+export const reducer = combineReducers({gyms: gymsReducer})
